@@ -1,0 +1,10 @@
+-langVersion:10 -nullable
+-nowarn:8600
+-nowarn:8601
+-nowarn:8602
+-nowarn:8603
+-nowarn:8604
+-nowarn:8605
+-nowarn:8618
+-nowarn:8625
+-nowarn:8629
