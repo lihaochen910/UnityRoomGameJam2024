@@ -1,0 +1,56 @@
+{
+    "name": "Default",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "fbf1368a-3ebf-4add-8fd2-68d8ac3c2e5b",
+            "actions": [
+                {
+                    "name": "Launch",
+                    "type": "Button",
+                    "id": "5f117d60-910f-4765-b788-375693c05ce6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7bd0dd5f-d3a5-418e-9788-430e8c84eefa",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5309373-b874-4312-8f19-e3c2cb0016d4",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48027b7e-08eb-49ff-84a0-ed622e97ada3",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

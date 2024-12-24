@@ -24,6 +24,11 @@ MonoBehaviour:
       _assemblyQualifiedName: GameJam.HelloWorldReactSystem, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     value2: 1
+  - value1:
+      _name: PlayerInputInitializeSystem
+      _assemblyQualifiedName: GameJam.PlayerInputInitializeSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
   Features:
   - value1: {fileID: 11400000, guid: 24067ea1acf424aee83ac46f4e117eae, type: 2}
     value2: 1
