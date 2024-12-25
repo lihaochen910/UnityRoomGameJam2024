@@ -8,7 +8,7 @@ using Bang.Systems;
 namespace GameJam {
 
 	[Watch( typeof( PlayerInputComponent ) )]
-	[Filter( typeof( PlayerComponent ) )]
+	[Filter( typeof( BulletLauncherComponent ) )]
 	public class BulletLauncherSystem : IReactiveSystem, IUpdateSystem {
 
 		public void OnAdded( World world, ImmutableArray< Entity > entities ) {

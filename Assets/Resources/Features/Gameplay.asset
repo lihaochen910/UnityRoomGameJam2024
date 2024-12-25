@@ -29,6 +29,21 @@ MonoBehaviour:
       _assemblyQualifiedName: GameJam.PlayerInputInitializeSystem, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
+  - value1:
+      _name: VolumeDynamicInCameraSystem
+      _assemblyQualifiedName: GameJam.VolumeDynamicInCameraSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: BulletLauncherSystem
+      _assemblyQualifiedName: GameJam.BulletLauncherSystem, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: FormulaReactSystem
+      _assemblyQualifiedName: GameJam.FormulaReactSystem, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    value2: 1
   Features:
   - value1: {fileID: 11400000, guid: 24067ea1acf424aee83ac46f4e117eae, type: 2}
     value2: 1
