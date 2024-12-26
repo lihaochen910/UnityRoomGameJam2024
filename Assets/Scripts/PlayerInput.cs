@@ -42,6 +42,17 @@ namespace GameJam
             ""bindings"": [
                 {
                     ""name"": """",
+                    ""id"": ""777913ff-b570-4a9e-a9fb-4890f1359378"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7bd0dd5f-d3a5-418e-9788-430e8c84eefa"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",

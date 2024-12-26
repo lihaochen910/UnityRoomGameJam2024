@@ -2,15 +2,16 @@ using Bang;
 using Bang.Contexts;
 using Bang.Entities;
 using Bang.Systems;
+using Bang.Unity;
 using UnityEngine;
 
 
 namespace GameJam {
 
 	[Filter( typeof( VolumeComponent ) )]
-	public class VolumeDynamicInCameraSystem : ILateUpdateSystem {
+	public class VolumeDynamicInCameraSystem : IUpdateSystem {
 
-		public void LateUpdate( Context context ) {
+		public void Update( Context context ) {
 
 			if ( context.World.TryGetUniqueEntityMainCamera() is not {} mainCamera ) {
 				return;
@@ -20,6 +21,10 @@ namespace GameJam {
 			
 			foreach ( var entity in context.Entities ) {
 				var volumeComponent = entity.GetVolume();
+				if ( !volumeComponent.Collider ) {
+					Debug.Log( $"{Game.Frame} null Collider detected. {entity.EntityId}" );
+					continue;
+				}
 				
 				// 获取圆形碰撞体的边界
 				Bounds bounds = volumeComponent.Collider.bounds;

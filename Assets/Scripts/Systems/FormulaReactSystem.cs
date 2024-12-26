@@ -3,6 +3,7 @@ using Bang.Components;
 using Bang.Entities;
 using Bang.Systems;
 using Bang.Unity;
+using Bang.Unity.Utilities;
 using UnityEngine;
 
 
@@ -49,8 +50,9 @@ namespace GameJam {
 				Debug.Log( $"{Game.Frame} apply FormulaReactionCommand: {formulaReactionCommandMessage.ReactType}" );
 				switch ( formulaReactionCommandMessage.ReactType ) {
 					case FormulaReactType.CreateSevenCopies:
-						// TODO:
-						
+						for ( var i = 0; i < 7; i++ ) {
+							entity.Clone( world );
+						}
 						break;
 					case FormulaReactType.VolumeIncrease:
 						var currentIncrement = entity.GetEggVolumeIncrement().Increment;

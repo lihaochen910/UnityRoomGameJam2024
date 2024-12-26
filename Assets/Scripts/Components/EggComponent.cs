@@ -3,8 +3,6 @@ using Bang.Components;
 
 namespace GameJam {
 
-	public readonly struct EggComponent : IComponent {
-		
-	}
+	public readonly struct EggComponent : IComponent {}
 
 }
