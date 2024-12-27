@@ -9,9 +9,10 @@ using UnityEngine;
 namespace GameJam {
 
 	[Filter( typeof( VolumeComponent ) )]
-	public class VolumeDynamicInCameraSystem : IUpdateSystem {
+	[Filter( ContextAccessorFilter.NoneOf, typeof( EggComponent ) )]
+	public class VolumeDynamicInCameraSystem : ILateUpdateSystem {
 
-		public void Update( Context context ) {
+		public void LateUpdate( Context context ) {
 
 			if ( context.World.TryGetUniqueEntityMainCamera() is not {} mainCamera ) {
 				return;

@@ -29,12 +29,12 @@ namespace GameJam {
 		}
 
 		private IEnumerator< Wait > BeginCountdown() {
-			
 			yield return Wait.ForSeconds( 1f );
-			
+			yield return GoTo( Play );
 		}
 		
 		private IEnumerator< Wait > Play() {
+			Entity.SetGameRoundScore( 0 );
 			yield return Wait.Stop;
 		}
 		

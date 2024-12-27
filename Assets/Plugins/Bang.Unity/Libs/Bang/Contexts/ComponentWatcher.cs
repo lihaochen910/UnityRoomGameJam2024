@@ -97,7 +97,7 @@ namespace Bang.Contexts
             World = world;
 
             _targetComponent = world.ComponentsLookup.Id(targetComponent);
-            Id = HashExtensions.GetHashCode(contextId, _targetComponent);
+            Id = HashCode.Combine(contextId, _targetComponent);
             
             #if DEBUG
             _targetComponentDebugInfo = $"cw_{targetComponent.Name}";
@@ -113,7 +113,7 @@ namespace Bang.Contexts
             World = world;
 
             _targetComponent = targetComponentId;
-            Id = HashExtensions.GetHashCode(contextId, _targetComponent);
+            Id = HashCode.Combine(contextId, _targetComponent);
             
             #if DEBUG
             _targetComponentDebugInfo = $"cw_{targetComponent.Name}";

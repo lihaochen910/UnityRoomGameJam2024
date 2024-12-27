@@ -26,6 +26,7 @@ namespace GameJam {
 		}
 
 		private void UpdateEntity( Entity entity ) {
+			// TODO: ii Effect
 			if ( entity.TryGetGameObjectReference() is {} gameObjectReference ) {
 				gameObjectReference.GameObject.transform.localScale = Vector3.one * entity.GetEggVolumeIncrement().Increment;
 			}

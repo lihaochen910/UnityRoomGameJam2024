@@ -38,6 +38,12 @@ namespace Bang.Unity.Services {
 			return e;
 		}
 
+		public static void RemoveCoroutine( this Entity e ) {
+			if ( e.HasStateMachine() ) {
+				e.RemoveStateMachine();
+			}
+		}
+
 	}
 
 }

@@ -20,8 +20,28 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   - value1:
+      _name: MoveSystem
+      _assemblyQualifiedName: GameJam.MoveSystem, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
       _name: VolumeDynamicInCameraSystem
       _assemblyQualifiedName: GameJam.VolumeDynamicInCameraSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: DestroyDuringOutOfScreenSystem
+      _assemblyQualifiedName: GameJam.DestroyDuringOutOfScreenSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: EggGeneratorSystem
+      _assemblyQualifiedName: GameJam.EggGeneratorSystem, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: EggAppearanceUpdateSystem
+      _assemblyQualifiedName: GameJam.EggAppearanceUpdateSystem, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   - value1:
@@ -40,6 +60,16 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   - value1:
+      _name: BulletLauncherFillingSystem
+      _assemblyQualifiedName: GameJam.BulletLauncherFillingSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: BulletAppearanceUpdateSystem
+      _assemblyQualifiedName: GameJam.BulletAppearanceUpdateSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
       _name: FormulaReactSystem
       _assemblyQualifiedName: GameJam.FormulaReactSystem, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
@@ -50,14 +80,19 @@ MonoBehaviour:
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   - value1:
-      _name: DestroyDuringOutOfScreenSystem
-      _assemblyQualifiedName: GameJam.DestroyDuringOutOfScreenSystem, Assembly-CSharp,
+      _name: GameRoundScoreUISystem
+      _assemblyQualifiedName: GameJam.GameRound.GameRoundScoreUISystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: GameRoundScoreUpdateSystem
+      _assemblyQualifiedName: GameJam.GameRound.GameRoundScoreUpdateSystem, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   Features:
   - value1: {fileID: 11400000, guid: 24067ea1acf424aee83ac46f4e117eae, type: 2}
     value2: 1
   - value1: {fileID: 11400000, guid: e87f07e04b76c4bd4a8adb58be10e4a2, type: 2}
-    value2: 1
+    value2: 0
   - value1: {fileID: 11400000, guid: 3ec3cdd5db5c143dd91294002d18ba05, type: 2}
     value2: 1

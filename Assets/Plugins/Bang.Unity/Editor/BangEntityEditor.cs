@@ -13,6 +13,7 @@ namespace Bang.Unity.Editor {
 
 		private BangEntity _owner => ( BangEntity )target;
 		private SerializedProperty _entityDestroyFollowPolicyProp;
+		private SerializedProperty _entityActiveFollowPolicy;
 		private SerializedProperty _entityAssetProp;
 		private SerializedProperty _boundEntitySerializationProp;
 		private SerializedProperty _boundEntityReferencesProp;
@@ -31,6 +32,7 @@ namespace Bang.Unity.Editor {
 
 		private void OnEnable() {
 			_entityDestroyFollowPolicyProp = serializedObject.FindProperty( "_entityDestroyFollowPolicy" );
+			_entityActiveFollowPolicy = serializedObject.FindProperty( "_entityActiveFollowPolicy" );
 			_entityAssetProp = serializedObject.FindProperty( "_entityAsset" );
 			_boundEntitySerializationProp = serializedObject.FindProperty( "_boundEntitySerialization" );
 			_boundEntityReferencesProp = serializedObject.FindProperty( "_boundEntityObjectReferences" );
@@ -41,6 +43,7 @@ namespace Bang.Unity.Editor {
 
 		private void InitializeProperties() {
 			_entityDestroyFollowPolicyProp = serializedObject.FindProperty( "_entityDestroyFollowPolicy" );
+			_entityActiveFollowPolicy = serializedObject.FindProperty( "_entityActiveFollowPolicy" );
 			_entityAssetProp = serializedObject.FindProperty( "_entityAsset" );
 			_boundEntitySerializationProp = serializedObject.FindProperty( "_boundEntitySerialization" );
 			_boundEntityReferencesProp = serializedObject.FindProperty( "_boundEntityObjectReferences" );
@@ -56,6 +59,7 @@ namespace Bang.Unity.Editor {
 				
 				serializedObject.Update();
 				EditorGUILayout.PropertyField( _entityDestroyFollowPolicyProp, EditorUtils.GetTempContent( "DestroyPolicy" ) );
+				EditorGUILayout.PropertyField( _entityActiveFollowPolicy, EditorUtils.GetTempContent( "ActiveFollowPolicy" ) );
 				EditorGUILayout.Space();
 				serializedObject.ApplyModifiedProperties();
 				

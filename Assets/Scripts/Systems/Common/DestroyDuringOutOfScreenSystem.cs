@@ -8,12 +8,13 @@ using UnityEngine;
 namespace GameJam {
 
 	[Filter( typeof( DestroyDuringOutOfScreenComponent ), typeof( VolumeComponent ) )]
-	public class DestroyDuringOutOfScreenSystem : ILateUpdateSystem {
+	public class DestroyDuringOutOfScreenSystem : IUpdateSystem {
 
-		public void LateUpdate( Context context ) {
+		public void Update( Context context ) {
 			foreach ( var entity in context.Entities ) {
 				if ( !entity.HasInCamera() ) {
-					entity.RemoveVolume();
+					// entity.RemoveMove();
+					// entity.RemoveVolume();
 					entity.Destroy();
 					Debug.Log( $"{Game.Frame} destroy entity: {entity.EntityId}" );
 				}

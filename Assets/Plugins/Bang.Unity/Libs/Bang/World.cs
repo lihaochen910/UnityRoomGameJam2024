@@ -1536,6 +1536,8 @@ namespace Bang
                     }
                 }
 
+                system.OnAfterTrigger(this);
+                
                 if (DIAGNOSTICS_MODE)
                 {
                     InitializeDiagnosticsCounters();

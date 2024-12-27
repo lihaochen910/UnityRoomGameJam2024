@@ -15,6 +15,11 @@ namespace Bang.Unity {
 		DestroyGameObjectWhenEntityDestroyed,
 		DoNothing
 	}
+	
+	public enum EntityActiveFollowPolicy : byte {
+		Follow,
+		DoNothing
+	}
 
 	[AddComponentMenu("Bang/BangEntity")]
 	[DefaultExecutionOrder(-100)]
@@ -26,6 +31,9 @@ namespace Bang.Unity {
 
 		[SerializeField]
 		private EntityDestroyFollowPolicy _entityDestroyFollowPolicy = EntityDestroyFollowPolicy.DestroyGameObjectWhenEntityDestroyed;
+		
+		[SerializeField]
+		private EntityActiveFollowPolicy _entityActiveFollowPolicy = EntityActiveFollowPolicy.Follow;
 		
 		[SerializeField]
 		private EntityAsset _entityAsset;
@@ -132,7 +140,9 @@ namespace Bang.Unity {
 				_entity.RemoveGameObjectDisabled();
 			}
 			
-			_entity.Activate();
+			if ( _entityActiveFollowPolicy is EntityActiveFollowPolicy.Follow ) {
+				_entity.Activate();
+			}
 		}
 
 		void OnDisable() {
@@ -144,7 +154,9 @@ namespace Bang.Unity {
 				_entity.SetGameObjectDisabled();
 			}
 			
-			_entity.Deactivate();
+			if ( _entityActiveFollowPolicy is EntityActiveFollowPolicy.Follow ) {
+				_entity.Deactivate();
+			}
 		}
 
 		void OnDestroy() {
