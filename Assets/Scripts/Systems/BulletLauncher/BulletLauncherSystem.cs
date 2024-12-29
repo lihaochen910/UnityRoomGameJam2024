@@ -6,7 +6,7 @@ using Bang.Systems;
 
 namespace GameJam {
 
-	[Watch( typeof( PlayerInputComponent ) )]
+	// [Watch( typeof( PlayerInputComponent ) )]
 	[Filter( typeof( BulletLauncherComponent ), typeof( BulletLauncherDirectionComponent ) )]
 	public class BulletLauncherSystem : IStartupSystem, IUpdateSystem {
 

@@ -6,7 +6,7 @@ using Bang.Systems;
 namespace GameJam {
 
 	[Filter]
-	public class PlayerInputInitializeSystem : IStartupSystem, IExitSystem {
+	public class PlayerInputInitializeSystem : IStartupSystem, IExitSystem, IUpdateSystem {
 		
 		private DefaultPlayerInput _playerInput;
 		
@@ -23,6 +23,15 @@ namespace GameJam {
 
 			if ( context.World.TryGetUniqueEntityPlayerInput() is {} playerInputEntity ) {
 				playerInputEntity.Destroy();
+			}
+		}
+
+		public void Update( Context context ) {
+			if ( _playerInput.Gameplay.ResetGame.WasPressedThisFrame() ) {
+				UnityEngine.SceneManagement.SceneManager.LoadScene(
+					sceneName: UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+					mode: UnityEngine.SceneManagement.LoadSceneMode.Single
+				);
 			}
 		}
 		

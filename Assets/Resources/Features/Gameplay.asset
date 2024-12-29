@@ -75,8 +75,23 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
     value2: 1
   - value1:
+      _name: FormulaReactCountdownSystem
+      _assemblyQualifiedName: GameJam.FormulaReactCountdownSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
       _name: FormulaReactionDetectSystem
       _assemblyQualifiedName: GameJam.FormulaReactionDetectSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: EggFormulaReactionDetectSystem
+      _assemblyQualifiedName: GameJam.EggFormulaReactionDetectSystem, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: EggInDashJudgementSystem
+      _assemblyQualifiedName: GameJam.EggInDashJudgementSystem, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   - value1:
@@ -88,6 +103,16 @@ MonoBehaviour:
       _name: GameRoundScoreUpdateSystem
       _assemblyQualifiedName: GameJam.GameRound.GameRoundScoreUpdateSystem, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: PushCorgiControllerWhenContactSystem
+      _assemblyQualifiedName: GameJam.CorgiController.PushCorgiControllerWhenContactSystem,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    value2: 1
+  - value1:
+      _name: CorgiControllerTestSystem
+      _assemblyQualifiedName: GameJam.CorgiController.CorgiControllerTestSystem,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     value2: 1
   Features:
   - value1: {fileID: 11400000, guid: 24067ea1acf424aee83ac46f4e117eae, type: 2}

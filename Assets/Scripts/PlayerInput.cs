@@ -37,6 +37,15 @@ namespace GameJam
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""d69a16e5-eb08-40c1-8c91-20c2f694662d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -83,6 +92,17 @@ namespace GameJam
                     ""action"": ""Launch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61f4f6fc-df28-497d-a221-f94c25dd371c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -92,6 +112,7 @@ namespace GameJam
             // Gameplay
             m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
             m_Gameplay_Launch = m_Gameplay.FindAction("Launch", throwIfNotFound: true);
+            m_Gameplay_ResetGame = m_Gameplay.FindAction("ResetGame", throwIfNotFound: true);
         }
 
         ~@DefaultPlayerInput()
@@ -159,11 +180,13 @@ namespace GameJam
         private readonly InputActionMap m_Gameplay;
         private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
         private readonly InputAction m_Gameplay_Launch;
+        private readonly InputAction m_Gameplay_ResetGame;
         public struct GameplayActions
         {
             private @DefaultPlayerInput m_Wrapper;
             public GameplayActions(@DefaultPlayerInput wrapper) { m_Wrapper = wrapper; }
             public InputAction @Launch => m_Wrapper.m_Gameplay_Launch;
+            public InputAction @ResetGame => m_Wrapper.m_Gameplay_ResetGame;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -176,6 +199,9 @@ namespace GameJam
                 @Launch.started += instance.OnLaunch;
                 @Launch.performed += instance.OnLaunch;
                 @Launch.canceled += instance.OnLaunch;
+                @ResetGame.started += instance.OnResetGame;
+                @ResetGame.performed += instance.OnResetGame;
+                @ResetGame.canceled += instance.OnResetGame;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -183,6 +209,9 @@ namespace GameJam
                 @Launch.started -= instance.OnLaunch;
                 @Launch.performed -= instance.OnLaunch;
                 @Launch.canceled -= instance.OnLaunch;
+                @ResetGame.started -= instance.OnResetGame;
+                @ResetGame.performed -= instance.OnResetGame;
+                @ResetGame.canceled -= instance.OnResetGame;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -203,6 +232,7 @@ namespace GameJam
         public interface IGameplayActions
         {
             void OnLaunch(InputAction.CallbackContext context);
+            void OnResetGame(InputAction.CallbackContext context);
         }
     }
 }

@@ -1,49 +1,34 @@
-using System.Collections.Generic;
-using System.Collections.Immutable;
 using Bang;
 using Bang.Contexts;
 using Bang.Entities;
-using Bang.StateMachines;
 using Bang.Systems;
-using Bang.Unity.Services;
+using Bang.Unity;
 using GameJam.Utilities;
 using UnityEngine;
 using Random = DigitalRune.Mathematics.Random;
 
 
 namespace GameJam {
-
-	[Watch( typeof( EggGeneratorComponent ) )]
+	
 	[Filter( typeof( EggGeneratorComponent ) )]
-	public class EggGeneratorSystem : IStartupSystem, IExitSystem, IReactiveSystem {
+	public class EggGeneratorSystem : IStartupSystem, IExitSystem, IUpdateSystem {
 
 		private GameObject _prefabEgg;
+		private float _timer;
+		private const float _generateInterval = 1f;
 		
 		public void Start( Context context ) {
-			_prefabEgg = Resources.Load< GameObject >( "Prefabs/Egg" );
+			_prefabEgg = Resources.Load< GameObject >( "Prefabs/Egg_2" );
+			_timer = _generateInterval;
 		}
 		
 		public void Exit( Context context ) {
 			// Resources.UnloadAsset( _prefabEgg );
 			_prefabEgg = null;
 		}
-
-		public void OnAdded( World world, ImmutableArray< Entity > entities ) {
-			foreach ( var entity in entities ) {
-				entity.RunCoroutine( CRGenerateEgg( world ) );
-			}
-		}
-
-		public void OnRemoved( World world, ImmutableArray< Entity > entities ) {
-			foreach ( var entity in entities ) {
-				entity.RemoveCoroutine();
-			}
-		}
-
-		public void OnModified( World world, ImmutableArray< Entity > entities ) {}
-
-		private IEnumerator< Wait > CRGenerateEgg( World world ) {
-
+		
+		public void Update( Context context ) {
+			
 			Vector3 GetRandomWorldPosition( Camera camera ) {
 				// 获取屏幕的宽度和高度
 				float screenWidth = Screen.width;
@@ -60,24 +45,25 @@ namespace GameJam {
 				// 返回生成的世界坐标
 				return new Vector3( worldPosition.x, worldPosition.y, 0 ); // z 轴可以根据需要调整
 			}
-
-			while ( true ) {
-				yield return Wait.ForSeconds( 1f );
-
-				var eggs = world.GetEntitiesWith( ContextAccessorFilter.AnyOf, typeof( EggComponent ) );
+			
+			_timer -= Game.DeltaTime;
+			if ( _timer < 0 ) {
+				_timer = _generateInterval;
+				
+				var eggs = context.World.GetEntitiesWith( ContextAccessorFilter.AnyOf, typeof( EggComponent ) );
 				if ( eggs.Length < 100 ) {
-					var eggEntity = world.SpawnEntityPrefab( _prefabEgg );
-					eggEntity.SetChar(Random.Chance( 50 ) ? EChar.Na : EChar.I );
+					var eggEntity = context.World.SpawnEntityPrefab( _prefabEgg );
+					eggEntity.SetChar( Random.Chance( 50 ) ? EChar.Na : EChar.I );
 					eggEntity.SetEggVolumeIncrement( 1 );
+					eggEntity.SetInCamera();
+					eggEntity.SetDestroyDuringOutOfScreen();
 					
-					if ( world.TryGetUniqueEntityMainCamera() is {} cameraEntity &&
+					if ( context.World.TryGetUniqueEntityMainCamera() is {} cameraEntity &&
 						 cameraEntity.TryGetUnityComponent< Camera >() is {} camera ) {
 						eggEntity.TrySetTransformPosition( GetRandomWorldPosition( camera ) );
 					}
 				}
-				
 			}
-			
 		}
 		
 	}

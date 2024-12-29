@@ -16,7 +16,7 @@ namespace GameJam {
 					// entity.RemoveMove();
 					// entity.RemoveVolume();
 					entity.Destroy();
-					Debug.Log( $"{Game.Frame} destroy entity: {entity.EntityId}" );
+					// Debug.Log( $"{Game.Frame} destroy entity: {entity.EntityId}" );
 				}
 			}
 		}
